@@ -15,4 +15,9 @@ func main() {
 	for i, majfruit := range enMajuscules {
 		fmt.Println(i+1, "-", majfruit)
 	}
+
+	var phrase string = "le chat dort"
+	mots := strings.Fields(phrase) // ["le", "chat", "dort"]
+	fmt.Println(len(mots))
+	fmt.Println(strings.Join(mots, " "))
 }
