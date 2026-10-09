@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	// Je commence par verifier les arguments
 	if len(os.Args) < 3 {
 		fmt.Fprintln(os.Stderr, "Erreur : Veuillez entrer le fichier d'entrée puis le fichier de sortie."+"\nExemple : go run . entree.txt resultat.txt")
 		os.Exit(1)
@@ -16,15 +17,20 @@ func main() {
 		os.Exit(1)
 	}
 
+	//Je vais chercher mon contenu
 	contenu, err := lireFichier(os.Args[1])
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "Impossible de lire le fichier")
+		fmt.Fprintln(os.Stderr, "Impossible de lire le fichier", err)
 		os.Exit(1)
 	}
 
+	//Je modifie mon contenu
+	contenu = transformer(contenu)
+
+	//L'enregistre le contenu modifié
 	err = ecrireFichier(os.Args[2], contenu)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "Impossible d'écrire le fichier")
+		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 	fmt.Println("Terminé : ", os.Args[2], " a été créé.")

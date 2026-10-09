@@ -1,0 +1,20 @@
+$ go run .
+Erreur : Veuillez entrer le fichier d'entrée puis le fichier de sortie.
+Exemple : go run . entree.txt resultat.txt
+exit status 1
+
+$ go run . entree.txt
+Erreur : Veuillez entrer le fichier d'entrée puis le fichier de sortie.
+Exemple : go run . entree.txt resultat.txt
+exit status 1
+
+$ go run . entree.txt entree.txt
+Veillez à ce que le nom du fichier d'entrée et de sortie soient différents.
+exit status 1
+
+$ go run . entree.txt dossier_absent/sortie.txt 
+Impossible d'écrire le fichier dossier_absent/sortie.txt : open dossier_absent/sortie.txt: The system cannot find the path specified.
+exit status 1
+
+$ go run . entree.txt sortie.txt
+Terminé :  sortie.txt  a été créé.
