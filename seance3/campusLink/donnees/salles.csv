@@ -1,0 +1,5 @@
+id,nom,batiment,capacite
+S101,Salle Turing,A,30
+S102,Salle Lovelace,A,24
+S201,Amphi Hopper,B,120
+S202,Salle Hamilton,B,18
