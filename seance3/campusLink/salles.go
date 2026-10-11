@@ -31,6 +31,23 @@ func lireSalle(ligne string) (Salle, error) {
 	if capacite <= 0 {
 		return Salle{}, fmt.Errorf("la capacité doit être positive, %d trouvé", capacite)
 	}
+	return Salle{ID: champs[0], Nom: champs[1], Batiment: champs[2], Capacite: capacite}, nil
+}
 
-	return Salle{}, nil
+func lireSalles(texte string) ([]Salle, []string) {
+	var salles []Salle
+	var problemes []string
+	lignes := strings.Split(texte, "\n")
+	for i, ligne := range lignes {
+		if i == 0 || strings.TrimSpace(ligne) == "" {
+			continue
+		}
+		salle, err := lireSalle(ligne)
+		if err != nil {
+			problemes = append(problemes, fmt.Sprintf("ligne %d : %v", i+1, err))
+			continue
+		}
+		salles = append(salles, salle)
+	}
+	return salles, problemes
 }
