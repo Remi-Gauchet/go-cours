@@ -3,9 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
+	fmt.Println(appliquerMarqueurs(strings.Fields("paris (cap)")))
 	// Je commence par verifier les arguments
 	if len(os.Args) < 3 {
 		fmt.Fprintln(os.Stderr, "Erreur : Veuillez entrer le fichier d'entrée puis le fichier de sortie."+"\nExemple : go run . entree.txt resultat.txt")
