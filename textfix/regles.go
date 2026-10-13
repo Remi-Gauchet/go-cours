@@ -5,6 +5,7 @@ import (
 	"unicode"
 )
 
+// transformer prend un string et le remanie en lui appliquant des fonctions de mise en forme ou de mise en page
 func transformer(texte string) string {
 	lignes := strings.Split(texte, "\n")
 
@@ -18,6 +19,7 @@ func transformer(texte string) string {
 	return strings.Join(lignes, "\n")
 }
 
+// capitaliser met une majuscule au début du mot et le reste en mjnuscule
 func capitaliser(mot string) string {
 	if mot == "" {
 		return mot
@@ -27,6 +29,7 @@ func capitaliser(mot string) string {
 	return string(lettres)
 }
 
+// appliquerMarqueurs détecte dans le string certains "marqueurs" prédéfinis et modifie le string en fonction d'eux
 func appliquerMarqueurs(mots []string) []string {
 	var resultat []string
 	for _, mot := range mots {

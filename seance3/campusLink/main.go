@@ -30,12 +30,16 @@ func main() {
 
 func commandeImportSalles(fichiers []string) error {
 	if len(fichiers) == 0 {
-		fmt.Errorf("aucun fichier indiqué")
-		os.Exit(1)
+		return fmt.Errorf("aucun fichier indiqué")
 	}
 	contenu, err := lireFichier(fichiers[0])
 	if err != nil {
 		return err
+	}
+	salles, problemes := lireSalle(contenu)
+	for _, salle := range salles {
+		fmt.Printf("%q", " - ", "%q", " - ")
+
 	}
 	return nil
 }

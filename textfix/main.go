@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+// main lance le programme textfix qui consiste à récupérer un string dans un fichier texte (.txt) à lui appliquer des modifications, puis à le réécrire dans un autre fichier texte
+// fonctionne en définissant les noms des deux fichiers en argument
 func main() {
 	// Je commence par verifier les arguments
 	if len(os.Args) < 3 {
@@ -24,10 +26,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	//Je modifie mon contenu
+	// Je modifie mon contenu
 	contenu = transformer(contenu)
 
-	//L'enregistre le contenu modifié
+	// Enregistre le contenu modifié
 	err = ecrireFichier(os.Args[2], contenu)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
