@@ -2,8 +2,8 @@
 Programme en GO servant à transformant un fichier texte en appliquant plusieurs modifications, insérées dans le texte en tant que marqueurs.
 
 ## Installation
-Teléchargez le dossier textfix
-Placez votre fichier .txt à la racine du projet
+Teléchargez le dossier textfix.
+Placez votre fichier .txt à la racine du projet.
 Dans votre éditeur de texte, donnez en argument le nom du fichier à modifier, suivi du nom du fichier à créer
 
 ## Utilisation
@@ -12,8 +12,8 @@ Exemple :
 ```bash
 go run . entree.txt sortie .txt
 ```
-(ici entree.txt est le texte d'entrée à modifier
-sortie.txt et le résultat obtenu)
+(ici **entree.txt** est le texte d'entrée à modifier
+et **sortie.txt** et le résultat obtenu)
 
 ## Les règles
 |    Marqueur    |              Effet           |  Exemple   | Résultat |

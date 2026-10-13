@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strconv"
 	"strings"
 	"unicode"
 )
@@ -33,7 +34,7 @@ func capitaliser(mot string) string {
 func appliquerMarqueurs(mots []string) []string {
 	var resultat []string
 	for _, mot := range mots {
-		if mot == "(up)" || mot == "(low)" || mot == "(cap)" {
+		if mot == "(up)" || mot == "(low)" || mot == "(cap)" || mot == "(hex)" || mot == "(bin)" {
 			if len(resultat) == 0 {
 				continue
 			}
@@ -46,6 +47,22 @@ func appliquerMarqueurs(mots []string) []string {
 				resultat[dernier] = strings.ToLower(resultat[dernier])
 			case "(cap)":
 				resultat[dernier] = capitaliser(resultat[dernier])
+			case "(hex)":
+				valeur, err := strconv.ParseInt(resultat[dernier], 16, 64)
+				if err != nil {
+					continue
+				}
+				texte := strconv.FormatInt(valeur, 10)
+				resultat[dernier] = texte
+
+			case "(bin)":
+				valeur, err := strconv.ParseInt(resultat[dernier], 2, 64)
+				if err != nil {
+					continue
+				}
+				texte := strconv.FormatInt(valeur, 10)
+				resultat[dernier] = texte
+
 			}
 		} else {
 			resultat = append(resultat, mot)

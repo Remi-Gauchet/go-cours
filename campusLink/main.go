@@ -36,10 +36,13 @@ func commandeImportSalles(fichiers []string) error {
 	if err != nil {
 		return err
 	}
-	salles, problemes := lireSalle(contenu)
+	salles, problemes := lireSalles(contenu)
 	for _, salle := range salles {
-		fmt.Printf("%q", " - ", "%q", " - ")
-
+		fmt.Printf("%s - %s - bâtiment %s - %d places\n", salle.ID, salle.Nom, salle.Batiment, salle.Capacite)
 	}
+	for _, problem := range problemes {
+		fmt.Fprintln(os.Stderr, "Ligne ignorée :", problem)
+	}
+	fmt.Printf("%d salle(s) importée(s), %d ligne(s) ignorée(s).", len(salles), len(problemes))
 	return nil
 }
